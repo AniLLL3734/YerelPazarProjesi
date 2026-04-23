@@ -1,0 +1,41 @@
+@model IEnumerable<Proje.Models.Product>
+
+@{
+    ViewData["Title"] = "Ana Sayfa";
+}
+
+<div class="text-center mb-5">
+    <h1 class="display-4 fw-bold text-success">🌱 Yerel Pazar'a Hoş Geldiniz</h1>
+    <p class="lead">Bölgemizdeki taze ve doğal ürünleri üreten çiftçilerimizden doğrudan kapınıza.</p>
+</div>
+
+<h3 class="mb-4">Son Eklenen Ürünler</h3>
+
+<div class="row row-cols-1 row-cols-md-3 g-4">
+    @foreach (var item in Model)
+    {
+        <div class="col">
+            <div class="card h-100 shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title text-primary">@item.Name</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">Üretici: @item.Producer?.Name (@item.Producer?.City)</h6>
+                    <p class="card-text">@item.Description</p>
+                    <p class="card-text">
+                        <strong>Fiyat:</strong> <span class="text-success fs-5">@item.Price.ToString("C")</span><br />
+                        <small class="text-muted">Stok: @item.Stock adet</small>
+                    </p>
+                </div>
+                <div class="card-footer bg-white border-top-0">
+                    <button class="btn btn-outline-success w-100">Sepete Ekle</button>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+@if (!Model.Any())
+{
+    <div class="alert alert-info text-center">
+        Henüz platforma ürün eklenmemiş. Lütfen daha sonra tekrar ziyaret edin.
+    </div>
+}
