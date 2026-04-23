@@ -1,9 +1,0 @@
-[Bb]in/
-[Oo]bj/
-.vs/
-*.user
-*.suo
-app.db-shm
-app.db-wal
-publish/
-*.zip

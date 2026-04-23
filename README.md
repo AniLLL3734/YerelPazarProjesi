@@ -1,0 +1,23 @@
+YEREL ÜRETİCİ TÜKETİCİ PLATFORMU - PROJE ÖDEVİ
+
+Bu proje, yerel üreticilerin ürünlerini sergileyebileceği ve tüketicilerin bu ürünleri inceleyip sepete ekleyebileceği bir web uygulamasıdır.
+
+PROJENİN ÖZELLİKLERİ:
+- ASP.NET Core MVC mimarisi kullanılmıştır.
+- Veritabanı olarak SQLite (Entity Framework Core) kullanılmıştır.
+- 3 Farklı Sayfa Düzeni (Layout) bulunmaktadır:
+  1. Ziyaretçi/Tüketici Arayüzü (Ana sayfa ve Ürün listesi)
+  2. Üretici Paneli (Ürün ekleme/çıkarma işlemleri)
+  3. Admin Paneli (Üretici kayıt ve yönetim işlemleri)
+- Sepete ekleme, sepetten çıkarma ve sipariş tamamlama fonksiyonları mevcuttur.
+
+NASIL ÇALIŞTIRILIR?
+1. Bilgisayarınızda .NET SDK yüklü olduğundan emin olun.
+2. Proje klasöründe terminali (CMD) açın.
+3. "dotnet run" komutunu yazın.
+4. Tarayıcıdan "http://localhost:5105" adresine gidin.
+
+VERİTABANI NOTU:
+Proje klasöründeki "app.db" dosyası veritabanıdır. SQLite kullanıldığı için ekstra bir veritabanı kurulumuna gerek yoktur.
+
+
