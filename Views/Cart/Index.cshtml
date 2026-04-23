@@ -1,0 +1,66 @@
+@model IEnumerable<Proje.Models.Product>
+
+@{
+    ViewData["Title"] = "Sepetim";
+}
+
+<div class="container mt-5">
+    <h2 class="mb-4 text-success"><i class="bi bi-cart"></i> Sepetim</h2>
+
+    @if (!Model.Any())
+    {
+        <div class="alert alert-info">
+            Sepetiniz şu anda boş. <a asp-controller="Home" asp-action="Index" class="alert-link">Ürünlere göz atmak ister misiniz?</a>
+        </div>
+    }
+    else
+    {
+        <div class="table-responsive shadow-sm rounded">
+            <table class="table table-hover align-middle">
+                <thead class="table-success">
+                    <tr>
+                        <th>Ürün</th>
+                        <th>Üretici</th>
+                        <th>Fiyat</th>
+                        <th class="text-center">İşlem</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                <div class="d-flex align-items-center">
+                                    <span class="fs-5 fw-bold">@item.Name</span>
+                                </div>
+                            </td>
+                            <td>@item.Producer?.Name</td>
+                            <td class="fw-bold">@item.Price.ToString("C")</td>
+                            <td class="text-center">
+                                <a asp-action="RemoveFromCart" asp-route-id="@item.Id" class="btn btn-outline-danger btn-sm">
+                                    <i class="bi bi-trash"></i> Sepetten Çıkar
+                                </a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="2" class="text-end fw-bold fs-5">Toplam:</td>
+                        <td class="fw-bold fs-5 text-success">@Model.Sum(p => p.Price).ToString("C")</td>
+                        <td></td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+        
+        <div class="d-flex justify-content-between mt-4">
+            <a asp-controller="Home" asp-action="Index" class="btn btn-outline-secondary">
+                <i class="bi bi-arrow-left"></i> Alışverişe Devam Et
+            </a>
+            <a asp-action="Checkout" class="btn btn-success btn-lg">
+                <i class="bi bi-check-circle"></i> Siparişi Tamamla
+            </a>
+        </div>
+    }
+</div>

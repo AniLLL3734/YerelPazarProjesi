@@ -252,8 +252,4 @@ C:\Users\Administrator\Desktop\Proje\bin\Debug\net8.0\runtimes\win\lib\net7.0\Mi
 C:\Users\Administrator\Desktop\Proje\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Drawing.Common.dll
 C:\Users\Administrator\Desktop\Proje\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\Administrator\Desktop\Proje\bin\Debug\net8.0\runtimes\win\lib\net7.0\System.Windows.Extensions.dll
-C:\Users\Administrator\Desktop\Proje\bin\Debug\net8.0\publish\web.config
-C:\Users\Administrator\Desktop\Proje\bin\Debug\net8.0\publish\appsettings.Development.json
-C:\Users\Administrator\Desktop\Proje\bin\Debug\net8.0\publish\appsettings.json
-C:\Users\Administrator\Desktop\Proje\bin\Debug\net8.0\publish\Proje.deps.json
-C:\Users\Administrator\Desktop\Proje\bin\Debug\net8.0\publish\Proje.runtimeconfig.json
+C:\Users\Administrator\Desktop\Proje\obj\Debug\net8.0\Proje.sourcelink.json

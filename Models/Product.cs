@@ -13,6 +13,9 @@ namespace Proje.Models
         [Display(Name = "Açıklama")]
         public string Description { get; set; } = string.Empty;
 
+        [Display(Name = "Kategori")]
+        public string? Category { get; set; }
+
         [Required(ErrorMessage = "Fiyat zorunludur.")]
         [Display(Name = "Fiyat (₺)")]
         [DataType(DataType.Currency)]

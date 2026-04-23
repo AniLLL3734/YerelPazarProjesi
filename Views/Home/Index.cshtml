@@ -11,31 +11,50 @@
 
 <h3 class="mb-4">Son Eklenen Ürünler</h3>
 
-<div class="row row-cols-1 row-cols-md-3 g-4">
-    @foreach (var item in Model)
-    {
-        <div class="col">
-            <div class="card h-100 shadow-sm">
-                <div class="card-body">
-                    <h5 class="card-title text-primary">@item.Name</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">Üretici: @item.Producer?.Name (@item.Producer?.City)</h6>
-                    <p class="card-text">@item.Description</p>
-                    <p class="card-text">
-                        <strong>Fiyat:</strong> <span class="text-success fs-5">@item.Price.ToString("C")</span><br />
-                        <small class="text-muted">Stok: @item.Stock adet</small>
-                    </p>
-                </div>
-                <div class="card-footer bg-white border-top-0">
-                    <button class="btn btn-outline-success w-100">Sepete Ekle</button>
-                </div>
-            </div>
-        </div>
-    }
-</div>
-
 @if (!Model.Any())
 {
     <div class="alert alert-info text-center">
         Henüz platforma ürün eklenmemiş. Lütfen daha sonra tekrar ziyaret edin.
     </div>
 }
+else
+{
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        @foreach (var item in Model)
+        {
+            <div class="col">
+                <div class="card h-100 shadow-sm border-0">
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-start mb-2">
+                            <h5 class="card-title text-primary mb-0">@item.Name</h5>
+                            <span class="badge bg-success">@item.Category</span>
+                        </div>
+                        <h6 class="card-subtitle mb-3 text-muted">
+                            <i class="bi bi-person"></i> Üretici: @item.Producer?.Name (@item.Producer?.City)
+                        </h6>
+                        <p class="card-text text-secondary small">@item.Description</p>
+                        <div class="mt-auto">
+                            <p class="card-text mb-0">
+                                <span class="text-success fw-bold fs-4">@item.Price.ToString("C")</span>
+                            </p>
+                            <small class="text-muted">Stok: @item.Stock adet</small>
+                        </div>
+                    </div>
+                    <div class="card-footer bg-white border-0 p-3">
+                        <div class="d-grid gap-2">
+                            <a asp-controller="Cart" asp-action="AddToCart" asp-route-id="@item.Id" class="btn btn-success">
+                                <i class="bi bi-cart-plus"></i> Sepete Ekle
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+}
+
+<div class="text-center mt-5">
+    <a asp-controller="Products" asp-action="Index" class="btn btn-outline-success btn-lg px-5">Tüm Ürünleri Gör</a>
+</div>
+
+
